@@ -32,7 +32,7 @@ public class DelayQueueConsumer implements Runnable {
     public static void main(String[] args) {
         DelayQueue<DelayMessage> delayQueue = new DelayQueue();
         new Thread(new DelayQueueConsumer(delayQueue)).start();
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; i++) {
             int ttl = new Random().nextInt(10);
             delayQueue.offer(new DelayMessage("message " + i, 1000 * ttl));
         }
