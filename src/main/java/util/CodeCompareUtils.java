@@ -9,6 +9,12 @@ import java.io.*;
  */
 public class CodeCompareUtils {
 
+    /** 目标文件夹根目录 */
+    public static final String TARGET_ROOT_DIR = "/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier";
+
+    /** 源文件夹根目录 */
+    public static final String SOURCE_ROOT_DIR = "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver";
+
     /**
      * @param targetDir 目标路径
      * @param sourceDir 源路径
@@ -69,20 +75,20 @@ public class CodeCompareUtils {
     public static void main(String[] args) {
         CodeCompareUtils codeCompareUtils = new CodeCompareUtils();
         // 更新 controller/transmit 包下文件
-        codeCompareUtils.compareAndUpdate("/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier/controller/transmit",
-                "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver/controller/transmit");
+        codeCompareUtils.compareAndUpdate(TARGET_ROOT_DIR + "/controller/transmit",
+                SOURCE_ROOT_DIR + "/controller/transmit");
         // 更新 service/transmit 包下文件
-        codeCompareUtils.compareAndUpdate("/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier/service/transmit",
-                "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver/service/transmit");
+        codeCompareUtils.compareAndUpdate(TARGET_ROOT_DIR + "/service/transmit",
+                SOURCE_ROOT_DIR + "/service/transmit");
         // 更新 dto/transmit 包下文件
-        codeCompareUtils.compareAndUpdate("/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier/dto/transmit",
-                "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver/dto/transmit");
+        codeCompareUtils.compareAndUpdate(TARGET_ROOT_DIR + "/dto/transmit",
+                SOURCE_ROOT_DIR + "/dto/transmit");
         // 更新 populator/transmit 包下文件
-        codeCompareUtils.compareAndUpdate("/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier/populator/transmit",
-                "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver/populator/transmit");
+        codeCompareUtils.compareAndUpdate(TARGET_ROOT_DIR + "/populator/transmit",
+                SOURCE_ROOT_DIR + "/populator/transmit");
         // 更新 populator/convert/transmit 包下文件
-        codeCompareUtils.compareAndUpdate("/Users/yinyougen/projects/jd/fs/cash-register-service-2/cashier-service/src/main/java/com/jd/fs/bigstore/cashier/populator/convert/transmit",
-                "/Users/yinyougen/projects/jd/fs/doga-service-2/app-server-service/src/main/java/com/jd/fs/bigstore/appserver/populator/convert/transmit");
+        codeCompareUtils.compareAndUpdate(TARGET_ROOT_DIR + "/populator/convert/transmit",
+                SOURCE_ROOT_DIR + "/populator/convert/transmit");
     }
 
 }
