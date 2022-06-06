@@ -62,6 +62,13 @@
             <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.16</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
     </dependencies>
 
     <build>
