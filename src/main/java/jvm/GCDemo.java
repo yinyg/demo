@@ -2,6 +2,9 @@ package jvm;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author yinyg
  * @date 2022/6/1
@@ -44,17 +47,16 @@ public class GCDemo {
     /**
      * @throws
      * @description OOM demo
-     * 参数: -Xmx256m -Xms256m -XX:+PrintGCDetails
+     * 参数: -Xmx10m -Xms10m -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./demo-oom-heapdump.hprof
      * @author yinyg
      * @date 2022/6/5
      */
     @Test
     public void OOMDemo() {
-        byte[] allocation1 = new byte[50000*1024];
-        byte[] allocation2 = new byte[50000*1024];
-        byte[] allocation3 = new byte[50000*1024];
-        byte[] allocation4 = new byte[50000*1024];
-        byte[] allocation5 = new byte[50000*1024];
+        List<User> list = new ArrayList<>();
+        while (true) {
+            list.add(new User());
+        }
     }
 
 }

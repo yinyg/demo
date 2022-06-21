@@ -86,4 +86,12 @@ public class Demo {
         return c;
     }
 
+    @Test
+    public void highCPUDemo() {
+        Demo demo = new Demo();
+        while (true) {
+            demo.compute();
+        }
+    }
+
 }
