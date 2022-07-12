@@ -1,7 +1,7 @@
 package DataStructerAndAlgo.dynamicProgramming;
 
 /**
- * 最长递增子序列长度
+ * 最长递增子序列长度问题
  *
  * 我们有一个数字序列包含 n 个不同的数字，求出这个序列中的最长递增子序列长度。
  *

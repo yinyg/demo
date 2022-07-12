@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 三角形最小路径和
+ * 三角形最小路径和问题
  * from leetcode NO.120
  * 给定一个三角形 triangle ，找出自顶向下的最小路径和。
  *

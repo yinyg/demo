@@ -3,7 +3,7 @@ package DataStructerAndAlgo.dynamicProgramming;
 import java.util.Arrays;
 
 /**
- * 凑单满减
+ * 凑单满减问题
  * 满200减50，要求满足满减条件，并最大程度的接近200，最大限度的薅羊毛
  *
  * @author yinyg
