@@ -13,10 +13,10 @@ public class MaxIncrChildren {
     /**
      * 动态规划
      *
-     * states[i]表示前i个数字序列，必须包含第i个数字时，最长递增子序列长度
-     *
      * 时间复杂度: O(n^2)
      * 空间复杂度: O(n)
+     *
+     * states[i]表示前i个数字序列，必须包含第i个数字时，最长递增子序列长度
      *
      * @param nums 数字序列
      * @return int

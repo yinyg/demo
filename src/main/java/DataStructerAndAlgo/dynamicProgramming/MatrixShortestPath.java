@@ -15,6 +15,9 @@ public class MatrixShortestPath {
     /**
      * 矩阵中最短路径问题
      *
+     * 时间复杂度: O(n^2)；
+     * 空间复杂度: O(n^2)，因为当前行状态只与上一行状态有关，空间复杂度可优化为O(n)，如果需要知道路径，则无法优化。
+     *
      * @param w 矩阵
      * @param n 矩阵 行数、列数
      * @throws

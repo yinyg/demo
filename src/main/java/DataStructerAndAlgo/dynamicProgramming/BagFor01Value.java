@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 /**
  * 0-1背包问题升级版
- * 在不超过背包最大承受重量的前提下，求能装入背包的石头的最大总价值
+ *
+ * 在不超过背包最大承受重量的前提下，求能装入背包的石头的最大总价值。
  *
  * @author yinyg
  * @date 2022/7/6
@@ -13,6 +14,9 @@ public class BagFor01Value {
 
     /**
      * 0-1背包问题升级版
+     *
+     * 时间复杂度: O(n * limit)；
+     * 空间复杂度: O(n * limit)，因为当前行状态只与上一行状态有关，空间复杂度可优化为O(limit)，如果需要知道装入了哪些石头，则无法优化。
      *
      * @param weights 石头重量
      * @param values 石头价值 values[i] > 0
