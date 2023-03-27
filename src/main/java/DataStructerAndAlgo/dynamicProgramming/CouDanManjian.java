@@ -3,8 +3,9 @@ package DataStructerAndAlgo.dynamicProgramming;
 import java.util.Arrays;
 
 /**
- * 凑单满减
- * 满200减50，要求满足满减条件，并最大程度的接近200，最大限度的薅羊毛
+ * 凑单满减问题
+ *
+ * 满200减50，要求满足满减条件，并最大程度的接近200，最大限度的薅羊毛。
  *
  * @author yinyg
  * @date 2022/7/6
@@ -13,6 +14,9 @@ public class CouDanManjian {
 
     /**
      * 凑单满减算法
+     *
+     * 时间复杂度: O(n * amount)。
+     * 空间复杂度: O(n * amount)，因为当前行状态只与上一行状态有关，空间复杂度可优化为O(amount)，如果需要知道购买的商品，则无法优化
      *
      * @param products 购物车商品
      * @param n 商品数量

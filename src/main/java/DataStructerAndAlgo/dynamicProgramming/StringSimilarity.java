@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * 字符串相似度问题
  *
- * 算法: 莱文斯坦距离、最长公共子串
+ * 算法: 莱文斯坦距离、最长公共子串长度
  *
  * @author yinyg
  * @date 2022/7/10
@@ -15,8 +15,8 @@ public class StringSimilarity {
     /**
      * 莱文斯坦距离
      *
-     * 时间复杂度: O(m * n)
-     * 空间复杂度: O(m * n)
+     * 时间复杂度: O(n * m)
+     * 空间复杂度: O(n * m)
      *
      * 当a[i] != b[j]:
      * 1) i = i + 1，距离 +1，比较a[i + 1]、b[j]；
@@ -62,12 +62,8 @@ public class StringSimilarity {
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 dp[i][j] = a[i] == b[j] ? dp[i - 1][j - 1] : dp[i - 1][j - 1] + 1;
-                if (dp[i - 1][j] + 1 < dp[i][j]) {
-                    dp[i][j] = dp[i - 1][j] + 1;
-                }
-                if (dp[i][j - 1] + 1 < dp[i][j]) {
-                    dp[i][j] = dp[i][j - 1] + 1;
-                }
+                dp[i][j] = Math.min(dp[i][j], dp[i - 1][j] + 1);
+                dp[i][j] = Math.min(dp[i][j], dp[i][j - 1] + 1);
             }
         }
 
@@ -82,10 +78,10 @@ public class StringSimilarity {
     }
 
     /**
-     * 最长公共子串
+     * 最长公共子串长度
      *
-     * 时间复杂度: O(m * n)
-     * 空间复杂度: O(m * n)
+     * 时间复杂度: O(n * m)
+     * 空间复杂度: O(n * m)
      *
      * 当a[i] != b[j]:
      * 1) i = i + 1，公共子串长度 不变，比较a[i + 1]、b[j]；
@@ -114,6 +110,8 @@ public class StringSimilarity {
                 maxlcs[0][j] = 1;
             } else if (j != 0) {
                 maxlcs[0][j] = maxlcs[0][j - 1];
+            } else {
+                maxlcs[0][j] = 0;
             }
         }
         // 特殊处理第一列
@@ -122,17 +120,19 @@ public class StringSimilarity {
                 maxlcs[i][0] = 1;
             } else if (i != 0) {
                 maxlcs[i][0] = maxlcs[i - 1][0];
+            } else {
+                maxlcs[i][0] = 0;
             }
         }
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
+                // TIP:
+                // 如果 a[i] == b[j] == a[i - 1]，则有 maxlcs[i - 1][j - 1] + 1 == maxlcs[i - 1][j] == maxlcs[i][j]；
+                // 同理 a[i] == b[j] == b[j - 1]。
+                // 所以 当a[i] == b[j] 时，只需要考虑 maxlcs[i - 1][j - 1] + 1 。
                 maxlcs[i][j] = a[i] == b[j] ? maxlcs[i - 1][j - 1] + 1 : maxlcs[i - 1][j - 1];
-                if (maxlcs[i - 1][j] > maxlcs[i][j]) {
-                    maxlcs[i][j] = maxlcs[i - 1][j];
-                }
-                if (maxlcs[i][j - 1] > maxlcs[i][j]) {
-                    maxlcs[i][j] = maxlcs[i][j - 1];
-                }
+                maxlcs[i][j] = Math.max(maxlcs[i][j], maxlcs[i - 1][j]);
+                maxlcs[i][j] = Math.max(maxlcs[i][j], maxlcs[i][j - 1]);
             }
         }
 
