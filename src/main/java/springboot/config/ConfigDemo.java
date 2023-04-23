@@ -2,7 +2,7 @@ package springboot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springboot.bean.LifeCycleDemo;
+import springboot.bean.BeanLifeCycleDemo;
 
 /**
  * @author yinyg
@@ -16,9 +16,9 @@ public class ConfigDemo {
         return "helloworld";
     }
 
-    @Bean(name = "lifeCycleDemo", initMethod = "init", destroyMethod = "destroy")
-    public LifeCycleDemo lifeCycleDemo() {
-        return new LifeCycleDemo();
+    @Bean(name = "beanLifeCycleDemo", initMethod = "myInit", destroyMethod = "myDestroy")
+    public BeanLifeCycleDemo beanLifeCycleDemo() {
+        return new BeanLifeCycleDemo();
     }
 
 }

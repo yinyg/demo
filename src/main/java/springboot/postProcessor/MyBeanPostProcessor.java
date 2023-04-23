@@ -1,32 +1,30 @@
-package springboot.bean;
+package springboot.postProcessor;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 /**
+ * bean生命周期demo bean后置处理器
  * @author yinyg
- * @date 2022/10/27
+ * @date 2023/4/22
  */
-@Component("myBeanPostProcessor")
+@Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if ("lifeCycleDemo".equals(beanName)) {
-            System.out.println("invoke method postProcessBeforeInitialization for bean lifeCycleDemo");
+        if ("beanLifeCycleDemo".equals(beanName)) {
+            System.out.println("10. invoke postProcessBeforeInitialization");
         }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if ("lifeCycleDemo".equals(beanName)) {
-            System.out.println("invoke method postProcessAfterInitialization for bean lifeCycleDemo");
+        if ("beanLifeCycleDemo".equals(beanName)) {
+            System.out.println("13. invoke postProcessAfterInitialization");
         }
         return bean;
     }
-
 }
