@@ -10,6 +10,12 @@ import javax.annotation.Resource;
  */
 @Component("a")
 public class A {
+
     @Resource
     private B b;
+
+    public String sayHello() {
+       return "hello world";
+    }
+
 }
