@@ -10,3 +10,6 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
+logging:
+  level:
+    springboot.mapper: debug

@@ -21,4 +21,15 @@ public interface UserService {
      */
     ResultDTO<User> getUserById(Long id);
 
+    /**
+     * 根据用户id随机更新用户级别
+     *
+     * @param id
+     * @return springboot.dto.ResultDTO<java.lang.Void>
+     * @throws
+     * @author yinyg
+     * @date 2023/5/5
+     */
+    ResultDTO<Void> updateLevelRandomById(Long id);
+
 }

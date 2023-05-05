@@ -1,9 +1,7 @@
 package springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springboot.dto.ResultDTO;
 import springboot.pojo.User;
 import springboot.service.UserService;
@@ -32,6 +30,20 @@ public class UserController {
     @GetMapping("/detail")
     public ResultDTO<User> detail(Long id) {
         return userService.getUserById(id);
+    }
+
+    /**
+     * 根据用户id随机更新用户级别
+     *
+     * @param user
+     * @return springboot.dto.ResultDTO<java.lang.Void>
+     * @throws
+     * @author yinyg
+     * @date 2023/5/5
+     */
+    @PostMapping("/updateLevelRandomById")
+    public ResultDTO<Void> updateLevelRandomById(@RequestBody User user) {
+        return userService.updateLevelRandomById(user.getId());
     }
 
 }
