@@ -2,9 +2,7 @@ package springboot.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * bean生命周期demo
@@ -19,7 +17,7 @@ public class BeanLifeCycleDemo implements BeanNameAware, BeanClassLoaderAware, B
         System.out.println("3. 构造方法");
     }
 
-    @Resource
+    @Autowired
     public void setA(A a) {
         System.out.println("6. invoke setA for dependency");
         this.a = a;

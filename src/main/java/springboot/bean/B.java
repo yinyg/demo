@@ -1,8 +1,7 @@
 package springboot.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * @author yinyg
@@ -10,6 +9,6 @@ import javax.annotation.Resource;
  */
 @Component("b")
 public class B {
-    @Resource
+    @Autowired
     private A a;
 }
