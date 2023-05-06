@@ -32,6 +32,7 @@ public class MyTransactionPointcutInterceptor implements MethodInterceptor {
         TransactionDefinition transactionDefinition = getTransactionDefinition();
         // 开启事务
         TransactionStatus transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);
+        log.info("开启事务");
         Object result = null;
         try {
             result = invocation.proceed();
