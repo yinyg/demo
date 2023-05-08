@@ -1,6 +1,9 @@
 package springboot.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import springboot.aop.transaction.MyTransaction;
@@ -18,6 +21,8 @@ import java.util.Random;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
+    private final Log log = LogFactory.getLog(UserServiceImpl.class);
 
     /**
      * 获取用户详情
@@ -56,6 +61,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             }
         }
         return new ResultDTO<Void>();
+    }
+
+    /**
+     * refresh
+     *
+     * @throws
+     * @author yinyg
+     * @date 2023/5/9
+     */
+    @Async
+    @Override
+    public void refresh() {
+        log.info("refresh success");
     }
 
 }

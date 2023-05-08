@@ -32,4 +32,13 @@ public interface UserService {
      */
     ResultDTO<Void> updateLevelRandomById(Long id);
 
+    /**
+     * refresh
+     *
+     * @throws
+     * @author yinyg
+     * @date 2023/5/9
+     */
+    void refresh();
+
 }

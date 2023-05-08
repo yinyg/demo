@@ -46,4 +46,18 @@ public class UserController {
         return userService.updateLevelRandomById(user.getId());
     }
 
+    /**
+     * refresh
+     *
+     * @return springboot.dto.ResultDTO<java.lang.Void>
+     * @throws
+     * @author yinyg
+     * @date 2023/5/9
+     */
+    @GetMapping("/refresh")
+    public ResultDTO<Void> refresh() {
+        userService.refresh();
+        return new ResultDTO<Void>();
+    }
+
 }
