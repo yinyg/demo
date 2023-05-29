@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  coupon-template-serv:
+    build: ./coupon-template-serv
+    ports:
+      - 20000:20000
+    extra_hosts:
+      - "nacos:172.21.0.2"
+    environment:
+      TCLOUD: ${TCLOUD}
+      TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
+      TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
+    networks:
+      nocos-demo-network:
+        ipv4_address: 172.21.0.3
+  coupon-calculation-serv:
+    build: ./coupon-calculation-serv
+    ports:
+      - 20001:20001
+    extra_hosts:
+      - "nacos:172.21.0.2"
+    networks:
+      nocos-demo-network:
+        ipv4_address: 172.21.0.4
+  coupon-customer-serv:
+    build: ./coupon-customer-serv
+    ports:
+      - 20002:20002
+    extra_hosts:
+      - "nacos:172.21.0.2"
+    environment:
+      TCLOUD: ${TCLOUD}
+      TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
+      TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
+    networks:
+      nocos-demo-network:
+        ipv4_address: 172.21.0.5
+
+networks:
+  nocos-demo-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16

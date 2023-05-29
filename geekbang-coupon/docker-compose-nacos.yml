@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  nacos-server-single:
+    image: nacos/nacos-server:v2.2.2-slim
+    ports:
+      - 8848:8848
+    volumes:
+      - "./application-nacos.properties:/home/nacos/conf/application.properties"
+    environment:
+      TCLOUD: ${TCLOUD}
+      TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
+      TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
+      MODE: standalone
+    networks:
+      nocos-demo-network:
+        ipv4_address: 172.21.0.2
+
+networks:
+  nocos-demo-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
