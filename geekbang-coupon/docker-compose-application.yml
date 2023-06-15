@@ -4,34 +4,37 @@ services:
   coupon-template-serv:
     build: ./coupon-template-serv
     extra_hosts:
-      - "nacos:172.21.0.2"
+      - "nacos:172.21.0.10"
+      - "sentinel:172.21.0.20"
     environment:
       TCLOUD: ${TCLOUD}
       TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
       TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
     networks:
       nocos-demo-network:
-        ipv4_address: 172.21.0.3
+        ipv4_address: 172.21.0.60
   coupon-calculation-serv:
     build: ./coupon-calculation-serv
     extra_hosts:
-      - "nacos:172.21.0.2"
+      - "nacos:172.21.0.10"
+      - "sentinel:172.21.0.20"
     networks:
       nocos-demo-network:
-        ipv4_address: 172.21.0.4
+        ipv4_address: 172.21.0.70
   coupon-customer-serv:
     build: ./coupon-customer-serv
     ports:
-      - 20002:20002
+      - 20080:20002
     extra_hosts:
-      - "nacos:172.21.0.2"
+      - "nacos:172.21.0.10"
+      - "sentinel:172.21.0.20"
     environment:
       TCLOUD: ${TCLOUD}
       TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
       TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
     networks:
       nocos-demo-network:
-        ipv4_address: 172.21.0.5
+        ipv4_address: 172.21.0.80
 
 networks:
   nocos-demo-network:

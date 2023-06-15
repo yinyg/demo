@@ -2,6 +2,7 @@ HELP.md
 **/target/
 /.mvn/
 /transaction-logs/
+/geekbang-coupon/middleware/Sentinel-1.8.2/sentinel-dashboard-1.8.2.jar
 
 ### STS ###
 .apt_generated

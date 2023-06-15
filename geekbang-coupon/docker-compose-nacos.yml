@@ -12,9 +12,19 @@ services:
       TCLOUD_MYSQL_USER_NAME: ${TCLOUD_MYSQL_USER_NAME}
       TCLOUD_MYSQL_USER_PWD: ${TCLOUD_MYSQL_USER_PWD}
       MODE: standalone
+      JVM_XMS: 512m
+      JVM_XMX: 512m
+      JVM_XMN: 256m
     networks:
       nocos-demo-network:
-        ipv4_address: 172.21.0.2
+        ipv4_address: 172.21.0.10
+  sentinel-server-single:
+    build: ./middleware/Sentinel-1.8.2
+    ports:
+      - 8080:8080
+    networks:
+      nocos-demo-network:
+        ipv4_address: 172.21.0.20
 
 networks:
   nocos-demo-network:
